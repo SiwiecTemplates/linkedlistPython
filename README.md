@@ -1,5 +1,5 @@
 # linkedlistPython
 
 --------------------------------------------
-Concise and clear free python book w/code: http://projectpython.net/chapter17/ 
+Free python book w/code: http://projectpython.net/chapter17/ 
 --------------------------------------------
