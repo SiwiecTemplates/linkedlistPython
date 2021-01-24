@@ -1,4 +1,5 @@
 # Testing my linked lists DDL
+from termcolor import colored
 from pip._vendor.distlib.compat import raw_input
 
 from sentinel_DLL import Sentinel_DLL
@@ -19,7 +20,7 @@ def test_sentinel_DLL():
         l.insert_after(node, "Ohio")
 
     # Delete Idaho
-    if node != None:
+    if node is not None:
         l.delete(node)
 
     print("Hello, welcome to the linked list test. Here are some states:\n")
@@ -45,7 +46,6 @@ def test_sentinel_DLL():
     if insertAnother == 'n':
         exit(0)
 
-
     print("Here is the updated list: \n")
     print(l)
 
@@ -55,11 +55,13 @@ def test_insert_after(insAfter, ins):
     if node is not None:
         l.insert_after(node, ins)
     else:
-        print("The state selected to insert an element after does not exist. Please try again.")
-        print("**press -1 to escape**")
+        print(colored("ERROR: The state you selected to insert an element after does not exist. Please try again.", "red"))
+        print("Here is the list of states for your reference:\n")
+        print(l)
+        print("\n")
         insAfter = input("Enter the state which you would like to add an element after: ")
         if insAfter != "-1":
-            test_insert_after(insAfter, ins) # Recursion
+            test_insert_after(insAfter, ins)  # Recursion
 
 
 test_sentinel_DLL()
