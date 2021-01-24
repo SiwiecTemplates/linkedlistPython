@@ -1,7 +1,5 @@
 # linkedlistPython
 
 --------------------------------------------
-http://projectpython.net/chapter17/ 
+Great python book: http://projectpython.net/chapter17/ 
 --------------------------------------------
-
--------------------------------------------
