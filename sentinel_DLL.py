@@ -13,6 +13,7 @@ class Node:
     def get_data(self):
         return self.data
 
+
 class Sentinel_DLL:
     # Create the sentinel node, which is before the first node and after the last node
     def __init__(self):
@@ -30,16 +31,17 @@ class Sentinel_DLL:
     # Insert a new node w/ data after node 'x'
     def insert_after(self, x, data):
         y = Node(data)  # New node object
+        z = x.next      # y goes between x and z
 
         # Fix up links in the new node
         y.prev = x
-        y.next = x.next
+        y.next = z
 
         # The new node 'y' follows node 'x'
         x.next = y
 
         # The previous node of the next node is the original node
-        y.next.prev = y
+        z.prev = y
 
     # Insert a new node at the end of the list
     def append(self, data):
@@ -53,11 +55,13 @@ class Sentinel_DLL:
     # Delete node x
     def delete(self, x):
         # Splice out node 'x' by making its next and previous equal each other
-        x.prev.next = x.next
-        x.next.prev = x.next
+        y = x.prev
+        z = x.next
+        y.next = z
+        z.prev = y
 
     # Find a node containing data and return a reference to it. If no node contains 'data', returns none
-    def find(self, data):
+    def find(self, data):       # This uses 'linear_search' but in a linked list
         # Trick: Store a copy of the data in the sentinel, so data is always found
         self.sentinel.data = data
 
@@ -91,7 +95,7 @@ class Sentinel_DLL:
                 s += "'"
             if x.next != self.sentinel:
                 s += ", "   # if not the last node, add comma and space
-            x .next
+            x = x.next
 
         s += "]"
         return s
